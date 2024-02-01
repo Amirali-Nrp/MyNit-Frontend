@@ -1,0 +1,476 @@
+{
+  "student_id": 40030112067,
+  "name": "erfan",
+  "passed_units": 67,
+  "terms": [
+    {
+      "term_number": 4001,
+      "courses": [
+        {
+          "id": 1111003,
+          "name": "فيزيك 1",
+          "units": 3,
+          "lesson_group": 1,
+          "pre_reqs": [],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 15.5
+        },
+        {
+          "id": 1221125,
+          "name": "كارگاه مباني كامپيوتر و برنامه نويسي",
+          "units": 1,
+          "lesson_group": 2,
+          "pre_reqs": [],
+          "co_reqs": [
+            1221046
+          ],
+          "passed": "passed",
+          "mark": 20
+        },
+        {
+          "id": 1611007,
+          "name": "آيين زندگي - اخلاق كاربردي",
+          "units": 2,
+          "lesson_group": 1,
+          "pre_reqs": [],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 19
+        },
+        {
+          "id": 1111018,
+          "name": "زبان خارجي",
+          "units": 3,
+          "lesson_group": 1,
+          "pre_reqs": [],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 18
+        },
+        {
+          "id": 1111001,
+          "name": "رياضي عمومي 1",
+          "units": 3,
+          "lesson_group": 1,
+          "pre_reqs": [],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 20
+        },
+        {
+          "id": 1221046,
+          "name": "مباني كامپيوتر و برنامه نويسي 1",
+          "units": 3,
+          "lesson_group": 2,
+          "pre_reqs": [],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 20
+        }
+      ],
+      "total_units": 15,
+      "total_passed": 15,
+      "grade": 18.566666666666666
+    },
+    {
+      "term_number": 4002,
+      "courses": [
+        {
+          "id": 1111002,
+          "name": "رياضي عمومي 2",
+          "units": 3,
+          "lesson_group": 1,
+          "pre_reqs": [
+            1111001
+          ],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 12.25
+        },
+        {
+          "id": 1221128,
+          "name": "كارگاه برنامه نويسي پيشرفته",
+          "units": 1,
+          "lesson_group": 2,
+          "pre_reqs": [],
+          "co_reqs": [
+            1221003
+          ],
+          "passed": "passed",
+          "mark": 20
+        },
+        {
+          "id": 1221047,
+          "name": "رياضيات گسسته",
+          "units": 3,
+          "lesson_group": 1,
+          "pre_reqs": [],
+          "co_reqs": [
+            1111001,
+            1221046
+          ],
+          "passed": "passed",
+          "mark": 13
+        },
+        {
+          "id": 1111004,
+          "name": "فيزيك 2",
+          "units": 3,
+          "lesson_group": 1,
+          "pre_reqs": [
+            1111003
+          ],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 12.75
+        },
+        {
+          "id": 1111017,
+          "name": "فارسي",
+          "units": 3,
+          "lesson_group": 1,
+          "pre_reqs": [],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 15
+        },
+        {
+          "id": 1611001,
+          "name": "انديشه اسلامي يك - مبدا ومعاد",
+          "units": 2,
+          "lesson_group": 1,
+          "pre_reqs": [],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 19.5
+        },
+        {
+          "id": 1221003,
+          "name": "برنامه نويسي پيشرفته",
+          "units": 3,
+          "lesson_group": 2,
+          "pre_reqs": [
+            1221046
+          ],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 20
+        },
+        {
+          "id": 1111009,
+          "name": "معادلات ديفرانسيل",
+          "units": 3,
+          "lesson_group": 1,
+          "pre_reqs": [
+            1111001
+          ],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 18.75
+        }
+      ],
+      "total_units": 21,
+      "total_passed": 21,
+      "grade": 15.916666666666666
+    },
+    {
+      "term_number": 4011,
+      "courses": [
+        {
+          "id": 1611022,
+          "name": "دانش خانواده وجمعيت",
+          "units": 2,
+          "lesson_group": 1,
+          "pre_reqs": [],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 19
+        },
+        {
+          "id": 1221129,
+          "name": "مدارهاي الكتريكي و الكترونيكي",
+          "units": 3,
+          "lesson_group": 2,
+          "pre_reqs": [],
+          "co_reqs": [
+            1111004,
+            1111009
+          ],
+          "passed": "passed",
+          "mark": 14.75
+        },
+        {
+          "id": 1211036,
+          "name": "آمار و احتمالات مهندسي",
+          "units": 3,
+          "lesson_group": 1,
+          "pre_reqs": [
+            1111002
+          ],
+          "co_reqs": [],
+          "passed": "deleted",
+          "mark": -1
+        },
+        {
+          "id": 1221138,
+          "name": "برنامه نويسي وب و دستگاههاي سيار",
+          "units": 3,
+          "lesson_group": 3,
+          "pre_reqs": [
+            1221003
+          ],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 10.25
+        },
+        {
+          "id": 1221005,
+          "name": "ساختمان داده ها",
+          "units": 3,
+          "lesson_group": 2,
+          "pre_reqs": [
+            1221003,
+            1221047
+          ],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 10.6
+        },
+        {
+          "id": 1221127,
+          "name": "كارگاه آشنايي با مهندسي كامپيوتر",
+          "units": 1,
+          "lesson_group": 1,
+          "pre_reqs": [],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 20
+        },
+        {
+          "id": 1221050,
+          "name": "مدارهاي منطقي",
+          "units": 3,
+          "lesson_group": 2,
+          "pre_reqs": [],
+          "co_reqs": [
+            1221047
+          ],
+          "passed": "failed",
+          "mark": 9
+        }
+      ],
+      "total_units": 18,
+      "total_passed": 12,
+      "grade": 12.786666666666667
+    },
+    {
+      "term_number": 4012,
+      "courses": [
+        {
+          "id": 1221009,
+          "name": "نظريه زبانها و ماشينها",
+          "units": 3,
+          "lesson_group": 2,
+          "pre_reqs": [],
+          "co_reqs": [
+            1221005
+          ],
+          "passed": "passed",
+          "mark": 16
+        },
+        {
+          "id": 1611010,
+          "name": "آشنائي با قانون اساسي جمهوري اسلامي ايران",
+          "units": 2,
+          "lesson_group": 1,
+          "pre_reqs": [],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 19
+        },
+        {
+          "id": 1221029,
+          "name": "پايگاه داده ها",
+          "units": 3,
+          "lesson_group": 2,
+          "pre_reqs": [
+            1221005
+          ],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 18.24
+        },
+        {
+          "id": 1221050,
+          "name": "مدارهاي منطقي",
+          "units": 3,
+          "lesson_group": 2,
+          "pre_reqs": [],
+          "co_reqs": [
+            1221047
+          ],
+          "passed": "passed",
+          "mark": 19
+        },
+        {
+          "id": 1221031,
+          "name": "زبان تخصصي",
+          "units": 2,
+          "lesson_group": 2,
+          "pre_reqs": [
+            1111018
+          ],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 18.52
+        },
+        {
+          "id": 1221008,
+          "name": "طراحي الگوريتمها",
+          "units": 3,
+          "lesson_group": 2,
+          "pre_reqs": [
+            1221005
+          ],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 16.44
+        },
+        {
+          "id": 1221130,
+          "name": "جبر خطي كاربردي",
+          "units": 3,
+          "lesson_group": 2,
+          "pre_reqs": [
+            1111002
+          ],
+          "co_reqs": [],
+          "passed": "passed",
+          "mark": 14.5
+        }
+      ],
+      "total_units": 19,
+      "total_passed": 19,
+      "grade": 17.24105263157895
+    }
+  ],
+  "eligibles": [
+    {
+      "id": 1221058,
+      "name": "روش پژوهش و ارايه",
+      "units": 2,
+      "lesson_group": 2,
+      "pre_reqs": [
+        1221031
+      ],
+      "co_reqs": [],
+      "passed": "deleted",
+      "mark": -1
+    },
+    {
+      "id": 1221024,
+      "name": "سيگنالها و سيستمها",
+      "units": 3,
+      "lesson_group": 4,
+      "pre_reqs": [
+        1111009
+      ],
+      "co_reqs": [],
+      "passed": "deleted",
+      "mark": -1
+    },
+    {
+      "id": 1211036,
+      "name": "آمار و احتمالات مهندسي",
+      "units": 3,
+      "lesson_group": 1,
+      "pre_reqs": [
+        1111002
+      ],
+      "co_reqs": [],
+      "passed": "deleted",
+      "mark": -1
+    },
+    {
+      "id": 1221065,
+      "name": "تحليل و طراحي سيستم هاي نرم افزاري",
+      "units": 3,
+      "lesson_group": 2,
+      "pre_reqs": [],
+      "co_reqs": [
+        1221029
+      ],
+      "passed": "deleted",
+      "mark": -1
+    },
+    {
+      "id": 1221036,
+      "name": "معماري كامپيوتر",
+      "units": 3,
+      "lesson_group": 2,
+      "pre_reqs": [
+        1221050
+      ],
+      "co_reqs": [],
+      "passed": "deleted",
+      "mark": -1
+    },
+    {
+      "id": 1221131,
+      "name": "مباني و كاربردهاي هوش مصنوعي",
+      "units": 3,
+      "lesson_group": 2,
+      "pre_reqs": [
+        1221008
+      ],
+      "co_reqs": [],
+      "passed": "deleted",
+      "mark": -1
+    },
+    {
+      "id": 1221055,
+      "name": "اصول طراحي كامپايلر",
+      "units": 3,
+      "lesson_group": 2,
+      "pre_reqs": [
+        1221009
+      ],
+      "co_reqs": [],
+      "passed": "deleted",
+      "mark": -1
+    },
+    {
+      "id": 1611009,
+      "name": "انقلاب اسلامي ايران",
+      "units": 2,
+      "lesson_group": 1,
+      "pre_reqs": [],
+      "co_reqs": [],
+      "passed": "deleted",
+      "mark": -1
+    },
+    {
+      "id": 1111006,
+      "name": "ازمايشگاه فيزيك 2",
+      "units": 1,
+      "lesson_group": 1,
+      "pre_reqs": [
+        1111004
+      ],
+      "co_reqs": [],
+      "passed": "deleted",
+      "mark": -1
+    },
+    {
+      "id": 1611014,
+      "name": "تاريخ امامت",
+      "units": 2,
+      "lesson_group": 1,
+      "pre_reqs": [],
+      "co_reqs": [],
+      "passed": "deleted",
+      "mark": -1
+    }
+  ]
+}

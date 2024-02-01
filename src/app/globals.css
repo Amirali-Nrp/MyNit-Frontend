@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .ltr {
+    direction: ltr;
+  }
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/assets/fonts/fonts/webfonts/Vazirmatn[wght].woff2') format('woff2 supports variations'),
+       url('/assets/fonts/fonts/webfonts/Vazirmatn[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"); */
+
+:root {
+  --color-bg: #fff;
+  --color-border: #e5e7eb;
+  --color-sidebar-item: #f3f4f6;
+}
+
+
+
+
+

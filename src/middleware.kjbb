@@ -1,0 +1,47 @@
+// import { cookies } from "next/headers";
+// import { NextResponse } from "next/server";
+// import type { NextRequest } from "next/server";
+
+// const urls = []
+
+// export async function middleware(request: NextRequest) {
+//   const cookieStore = cookies();
+//   const access_token = cookieStore.get("token");
+//   if (
+//     !(
+//       request.nextUrl.pathname.startsWith("/Login") ||
+//       request.nextUrl.pathname.startsWith("/SignUp") ||
+//       request.nextUrl.pathname === "/"
+//     )
+//   ) {
+//     const tokens = {
+//       access_token: access_token,
+//     };
+
+//     console.log(request.nextUrl.pathname);
+
+//     if (tokens.access_token === undefined) {
+//       return NextResponse.rewrite(new URL("/", request.url));
+//     }
+
+//     try {
+//       const resposne = await fetch("http://0.0.0.0:8080/authorize", {
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       });
+
+//       console.log(resposne);
+//       if (resposne.data.detail === "unauthorize") {
+//         return NextResponse.rewrite(new URL("/", request.url));
+//       }
+//       return NextResponse.rewrite(
+//         new URL(`/${request.nextUrl.pathname}`, request.url)
+//       );
+//     } catch (e) {
+//       console.log(e);
+//     }
+
+//     return NextResponse.rewrite(new URL("/Login", request.url));
+//   }
+// }

@@ -1,0 +1,70 @@
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+
+import UserInfo from "@/components/header/UserInfo";
+import ReactQueryProvider from "../components/providers/react-query-provider";
+import { QueryClient, QueryClientProvider } from "react-query";
+import '@testing-library/jest-dom'
+import {jest} from '@jest/globals'
+import * as axios from "axios"
+
+
+// jest.mock('@/core/api/use-test', () => {
+//     useTest: () => ({
+//         data: {
+//           name: "erfan",
+//         },
+//         isLoading: false,
+//         isSuccess: true,
+//         isError: false
+//     })
+// })
+
+// jest.mock('@/core/api/use-test', () => ({
+//   __esModule: true,
+//   default: (studentID) => ({
+//     data: {
+//       "student_id": studentID,
+//       "name": "erfan",
+//       "passed_units": 67
+//     }
+//   })
+// }));
+
+// jest.mock("axios", () => ({
+//   __esModule: true,
+//   default: (studentID) => ({
+//     data: {
+//       "student_id": studentID,
+//       "name": "erfan",
+//       "passed_units": 67
+//     }
+// })}));
+
+jest.mock("axios")
+
+
+describe('UserInfo', () => {
+    it('displays username', async () => {
+      // const spy = jest.spyOn(axios, 'get');
+      // spy.mockResolvedValueOnce(
+      //   {status: 200, data: { "student_id": "40030112067", "name": "erfan", "passed_units": 67 } });
+
+      const mockAxios = jest.spyOn(axios, "get");
+    mockAxios.mockResolvedValueOnce({
+      data: {
+        name: 'erfan'
+      },
+    });
+
+      render(
+        <UserInfo id="40030112067" style={{ marginLeft: "20px" }} />
+      );
+
+      await waitFor(() => {
+        expect(mockAxios).toHaveBeenCalledTimes(1);
+  
+        const el = screen.getByTestId("username");
+        expect(el).toHaveTextContent("erfan");
+      });
+    });
+  });

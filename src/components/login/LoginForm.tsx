@@ -54,7 +54,7 @@ export default function LoginForm() {
     //   router.push(`/Home`);
     // }
     const res = await axios
-      .post("http://0.0.0.0:8080/login", loginData)
+      .post("https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/login", loginData)
       .then((res) => {
         if (res.status == 200) {
           Cookie.set("token", res.data["access token"], {

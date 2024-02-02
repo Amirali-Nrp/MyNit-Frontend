@@ -9,7 +9,7 @@ const useGetChart = (id: FormDataEntryValue | null): UseQueryResult<Term[]> => {
   return useQuery<Term[]>({
     queryKey: ["chart", id],
     queryFn: async (): Promise<Term[]> => {
-      const res = await axios.get<Term[]>(`http://0.0.0.0:8080/chart`, {
+      const res = await axios.get<Term[]>(`https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/chart`, {
         headers: {
           Authorization: `Bearer ${Cookies.get("token")}`,
         },

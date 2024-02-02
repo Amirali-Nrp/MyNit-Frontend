@@ -17,7 +17,7 @@ export default function useTest(
   return useQuery<Student>({
     queryKey: ["test", id],
     queryFn: async (): Promise<Student> => {
-      const res = await axios.get<Student>(`http://0.0.0.0:8080/units`, {
+      const res = await axios.get<Student>(`https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/units`, {
         headers: {
           // "Content-Type": "application/json",
           Authorization: `Bearer ${Cookies.get("token")}`,

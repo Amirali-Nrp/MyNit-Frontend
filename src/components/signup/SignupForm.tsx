@@ -28,7 +28,7 @@ export default function SignupForm() {
     };
     console.log("signupData", signupData);
     const res = await axios
-      .post("http://0.0.0.0:8080/signup", signupData)
+      .post("https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/signup", signupData)
       .then((res) => {
         if (res.status == 200) {
           Cookie.set("token", res.data["access token"], {

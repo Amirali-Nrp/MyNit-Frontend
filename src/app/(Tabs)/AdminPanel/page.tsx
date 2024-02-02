@@ -13,7 +13,7 @@ export default function AdminPanel() {
 
   useEffect(() => {
     axios
-      .get("http://0.0.0.0:8080/students", {
+      .get("https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/students", {
         headers: {
           Authorization: `Bearer ${Cookies.get("token")}`,
         },

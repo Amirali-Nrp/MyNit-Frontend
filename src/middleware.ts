@@ -21,15 +21,18 @@ export async function middleware(request: NextRequest) {
     }
 
     try {
-      const resposne = await fetch("http://0.0.0.0:8080/authorize", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          access_token: tokens.access_token.value,
-        }),
-      });
+      const resposne = await fetch(
+        "https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/authorize",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            access_token: tokens.access_token.value,
+          }),
+        }
+      );
 
       const result = await resposne.json();
       if (result.detail === "unauthorized") {
@@ -51,15 +54,18 @@ export async function middleware(request: NextRequest) {
     }
 
     try {
-      const resposne = await fetch("http://0.0.0.0:8080/authorize", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          access_token: tokens.access_token.value,
-        }),
-      });
+      const resposne = await fetch(
+        "https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/authorize",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            access_token: tokens.access_token.value,
+          }),
+        }
+      );
 
       const result = await resposne.json();
       console.log("res", result);

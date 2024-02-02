@@ -64,7 +64,7 @@ const Sidebar = () => {
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
-    axios.post("http://0.0.0.0:8080/authorize", {
+    axios.post("https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/authorize", {
       access_token: Cookies.get("token")
     })
     .then(res => setIsAdmin(res.data.admin)).

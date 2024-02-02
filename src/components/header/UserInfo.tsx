@@ -150,7 +150,7 @@ const UserInfo = (props: any) => {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem
+        {/* <MenuItem
           sx={{
             fontFamily: "Vazirmatn",
             fontSize: 15,
@@ -177,7 +177,7 @@ const UserInfo = (props: any) => {
           پیام ها
           <IoMdNotifications size={20} />
         </MenuItem>
-        <Divider sx={{ my: 0.5, backgroundColor: "#002145" }} />
+        <Divider sx={{ my: 0.5, backgroundColor: "#002145" }} /> */}
         <MenuItem
           sx={{
             fontFamily: "Vazirmatn",

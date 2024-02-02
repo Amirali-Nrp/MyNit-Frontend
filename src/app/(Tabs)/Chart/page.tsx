@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 
 import useTest from "@/core/api/use-test";
 import { useStudentStorage } from "@/storage/storage";
-import { Typography } from "@mui/material";
+import { CircularProgress, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import getChartData from "@/dict/Chart.dict";
@@ -22,14 +22,16 @@ export default function Chart() {
   } = useTest(studentId);
 
   return (
-    <>
+    <div
+      className="my-24 w-4/5 items-center rounded-xl border-2 border-[#002] bg-white p-20 px-48"
+      style={{ direction: "rtl" }}
+    >
       {isLoading ? (
-        <p>loading</p>
+        <div className="flex w-full items-center justify-center">
+          <CircularProgress />
+        </div>
       ) : (
-        <div
-          className="my-24 w-4/5 items-center rounded-xl border-2 border-[#002] bg-white p-20 px-48"
-          style={{ direction: "rtl" }}
-        >
+        <>
           <Grid
             container
             spacing={5}
@@ -54,8 +56,8 @@ export default function Chart() {
           <Typography fontFamily={"Vazirmatn"} className="mr-28 mt-12 text-lg">
             مجموع واحد های پاس شده : {studentInfo?.passed_units}
           </Typography>
-        </div>
+        </>
       )}
-    </>
+    </div>
   );
 }

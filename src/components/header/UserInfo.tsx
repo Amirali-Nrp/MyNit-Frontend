@@ -12,6 +12,7 @@ import Menu, { MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { alpha, styled } from "@mui/material/styles";
 import axios from "axios";
+import Cookies from "js-cookie";
 import { User2 } from "lucide-react";
 import { AiFillCaretDown } from "react-icons/ai";
 import { IoMdNotifications } from "react-icons/io";
@@ -116,6 +117,7 @@ const UserInfo = (props: any) => {
     setTimeout(() => {
       setStudentId(null);
       setCourseData([]);
+      Cookies.remove("token");
     }, 500);
   };
 

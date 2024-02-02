@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/SidebarContex.ts", "src/components/sideBar/Sidebar.js", "src/storage/storage.ts", "src/tests/UserInfo.test.js.", "jest.config.ts", "src/middleware.kjbb"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/SidebarContex.ts", "src/components/sideBar/Sidebar.js", "src/storage/storage.ts", "src/tests/UserInfo.test.js.", "jest.config.ts", "src/middleware.ts"],
   "exclude": ["node_modules"]
 }

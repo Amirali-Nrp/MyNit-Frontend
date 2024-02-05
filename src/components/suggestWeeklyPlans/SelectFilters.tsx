@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
+import { apiPath } from "@/constants/index.constants";
 import {
   useCourseFilterStorage,
   useStudentStorage,
   useSuggestedPlansStorage,
 } from "@/storage/storage";
 import showToast from "@/utils/showToast";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import Cookies from "js-cookie";
 
@@ -21,13 +22,17 @@ export default function SelectFilters() {
   const { filteredCourses, setFilteredCourses } = useCourseFilterStorage();
   const { studentId } = useStudentStorage();
   const { setPlans } = useSuggestedPlansStorage();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = () => {
+  const handleClick = () => {
+    setIsLoading(true);
     let message;
     if (filteredCourses.length === 0) {
       console.log("no courses");
       message = <p style={{ fontFamily: "Vazirmatn" }}>درسی انتخاب نشده است</p>;
       showToast(message, "error", 3000);
+      setIsLoading(false);
+
       return null;
     }
 
@@ -44,6 +49,8 @@ export default function SelectFilters() {
         </p>
       );
       showToast(message, "error", 3000);
+      setIsLoading(false);
+
       return null;
     }
     // console.log({
@@ -51,7 +58,7 @@ export default function SelectFilters() {
     // });
     axios
       .put(
-        "http://0.0.0.0:8080/units",
+        `${apiPath}/units`,
         {
           courses: [...filteredCourses],
         },
@@ -70,6 +77,7 @@ export default function SelectFilters() {
         }
         setPlans(response.data);
         console.log("incoming plans", response.data);
+        setIsLoading(false);
       });
   };
 
@@ -89,9 +97,16 @@ export default function SelectFilters() {
           fontFamily: "Vazirmatn",
         }}
         variant="contained"
-        onClick={handleSubmit}
+        onClick={handleClick}
+        // onClick={() => setIsLoading(true)}
       >
-        تایید
+        {isLoading ? (
+          <div className="flex w-full items-center justify-center">
+            <CircularProgress color="inherit" size={25} />
+          </div>
+        ) : (
+          "تایید"
+        )}
       </Button>
     </BgCard>
   );

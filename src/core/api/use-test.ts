@@ -1,6 +1,7 @@
 "use client";
 
 // import { cookies } from "next/headers";
+import { apiPath } from "@/constants/index.constants";
 import axios from "axios";
 // import { getCookie } from "cookies-next";
 import Cookies from "js-cookie";
@@ -17,15 +18,12 @@ export default function useTest(
   return useQuery<Student>({
     queryKey: ["test", Cookies.get("token")],
     queryFn: async (): Promise<Student> => {
-      const res = await axios.get<Student>(
-        `https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/units`,
-        {
-          headers: {
-            // "Content-Type": "application/json",
-            Authorization: `Bearer ${Cookies.get("token")}`,
-          },
-        }
-      );
+      const res = await axios.get<Student>(`${apiPath}/units`, {
+        headers: {
+          // "Content-Type": "application/json",
+          Authorization: `Bearer ${Cookies.get("token")}`,
+        },
+      });
       // console.log("data in fetch", res.data);
       return res.data;
     },

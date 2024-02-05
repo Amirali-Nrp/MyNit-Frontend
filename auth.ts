@@ -2,6 +2,7 @@
 import { get } from "http";
 import { cookies } from "next/headers";
 
+import { apiPath } from "@/constants/index.constants";
 import axios from "axios";
 // import { getCookie, setCookie } from "cookies-next";
 import NextAuth from "next-auth";
@@ -36,7 +37,7 @@ export const {
         console.log("credentials", parsedCredentials.data);
 
         const response = await axios.post(
-          "https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/login",
+          `${apiPath}/login`,
           {
             id: parsedCredentials.data.studentId,
             password: parsedCredentials.data.password,

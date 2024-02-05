@@ -22,13 +22,13 @@ export default function PreCourseSelect() {
         store={courseData}
         setStore={(data: Eligible[]) => setCourseData(data)}
       />
-      <Button
+      {/* <Button
         variant="contained"
         className="my-10 bg-blue-500 px-5"
         sx={{ fontFamily: "Vazirmatn" }}
       >
         ذخیره
-      </Button>
+      </Button> */}
     </div>
   );
 }

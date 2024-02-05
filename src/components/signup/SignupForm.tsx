@@ -1,12 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import {
   Box,
   Checkbox,
+  CircularProgress,
   FormControlLabel,
+  Link,
   TextField,
   Typography,
 } from "@mui/material";
@@ -15,11 +17,17 @@ import Cookie from "js-cookie";
 
 import "@/components/login/button.css";
 
+import { apiPath } from "@/constants/index.constants";
+import showToast from "@/utils/showToast";
+
 export default function SignupForm() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+    setIsLoading(true);
+    let message = null;
     const data = new FormData(event.currentTarget);
     const signupData = {
       id: data.get("studentNumber"),
@@ -27,8 +35,37 @@ export default function SignupForm() {
       password: data.get("password"),
     };
     console.log("signupData", signupData);
+    if (signupData.id == "") {
+      message = (
+        <p style={{ fontFamily: "Vazirmatn" }}>
+          لطفا شماره دانشجویی را وارد نمایید
+        </p>
+      );
+      showToast(message, "error", 3000);
+      setIsLoading(false);
+
+      return null;
+    }
+    if (signupData.name == "") {
+      message = (
+        <p style={{ fontFamily: "Vazirmatn" }}>لطفا نام را وارد نمایید</p>
+      );
+      showToast(message, "error", 3000);
+      setIsLoading(false);
+
+      return null;
+    }
+    if (signupData.password == "") {
+      message = (
+        <p style={{ fontFamily: "Vazirmatn" }}>لطفا رمزعبور را وارد نمایید</p>
+      );
+      showToast(message, "error", 3000);
+      setIsLoading(false);
+
+      return null;
+    }
     const res = await axios
-      .post("https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/signup", signupData)
+      .post(`${apiPath}/signup`, signupData)
       .then((res) => {
         if (res.status == 200) {
           Cookie.set("token", res.data["access token"], {
@@ -40,7 +77,10 @@ export default function SignupForm() {
       })
       .catch((err) => {
         console.log(err);
+        message = <p style={{ fontFamily: "Vazirmatn" }}>خطایی رخ داد</p>;
+        showToast(message, "error", 3000);
       });
+    setIsLoading(false);
   };
 
   return (
@@ -114,8 +154,24 @@ export default function SignupForm() {
         }
         sx={{ marginLeft: 1, direction: "rtl" }}
       /> */}
+      <Typography
+        sx={{
+          fontFamily: "Vazirmatn",
+          // textAlign: "center",
+          fontSize: "16px",
+          // fontWeight: "550",
+        }}  
+      >
+        حساب کاربری دارید؟ <Link href="/Login">وارد شوید</Link>
+      </Typography>
       <button className="button-48">
-        <span>ثبت نام</span>
+        {isLoading ? (
+          <div className="flex w-full items-center justify-center">
+            <CircularProgress />
+          </div>
+        ) : (
+          <span>ثبت نام</span>
+        )}
       </button>
     </Box>
   );

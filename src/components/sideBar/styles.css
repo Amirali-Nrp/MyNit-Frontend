@@ -1,5 +1,7 @@
 .sidebar {
     height: 100%;
+    /* height: 20%; */
+    /* height: 5px; */
     padding: 1rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
     /* overflow: hidden; */
@@ -19,7 +21,7 @@
   .sidebar__logo {
     width: 3.5rem;
     height: 3.5rem;
-    object-fit: contain;
+    /* object-fit: contain; */
     border-radius: 1rem;
   }
   
@@ -30,9 +32,12 @@
   }
   
   .sidebar__list {
-    list-style: none;
+    /* list-style: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; */
+    /* display: grid;
+    grid-template-columns: 100px 100px 100px; 
+    gap: 5px; */
   }
   
   .sidebar__link {
@@ -71,7 +76,7 @@
   .btn {
     position: absolute;
     right: 100%;
-    top: 4.7rem;
+    /* top: 4.7rem; */
     border: none;
     background-color: var(--color-bg);
     width: 1.5rem;

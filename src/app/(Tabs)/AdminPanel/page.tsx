@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
+import { apiPath } from "@/constants/index.constants";
 import { Box } from "@mui/material";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -13,7 +14,7 @@ export default function AdminPanel() {
 
   useEffect(() => {
     axios
-      .get("https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/students", {
+      .get(`${apiPath}/students`, {
         headers: {
           Authorization: `Bearer ${Cookies.get("token")}`,
         },

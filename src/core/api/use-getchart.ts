@@ -1,3 +1,4 @@
+import { apiPath } from "@/constants/index.constants";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useQuery, type UseQueryResult } from "react-query";
@@ -9,7 +10,7 @@ const useGetChart = (id: FormDataEntryValue | null): UseQueryResult<Term[]> => {
   return useQuery<Term[]>({
     queryKey: ["chart", id],
     queryFn: async (): Promise<Term[]> => {
-      const res = await axios.get<Term[]>(`https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/chart`, {
+      const res = await axios.get<Term[]>(`${apiPath}/chart`, {
         headers: {
           Authorization: `Bearer ${Cookies.get("token")}`,
         },

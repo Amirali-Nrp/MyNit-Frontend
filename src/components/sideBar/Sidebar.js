@@ -19,6 +19,7 @@ import { admin_routes } from "@/constants/routes";
 import "./styles.css";
 import axios from "axios";
 import { isAborted } from "zod";
+import { apiPath } from "@/constants/index.constants";
 
 // Hook
 function useWindowSize() {
@@ -61,10 +62,11 @@ const Sidebar = () => {
     useContext(SidebarContext);
 
   const [isMobile, setIsMobile] = useState(false);
+  const [isRotated, setIsRotated] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
-    axios.post("https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/authorize", {
+    axios.post(`${apiPath}/authorize`, {
       access_token: Cookies.get("token")
     })
     .then(res => setIsAdmin(res.data.admin)).
@@ -77,6 +79,12 @@ const Sidebar = () => {
       setIsMobile(true);
     } else {
       setIsMobile(false);
+    }
+    if (size.height < 800) {
+      setIsMobile(true);
+      setIsRotated(true)
+    } else {
+      setIsRotated(false);
     }
   }, [size]);
 
@@ -96,7 +104,7 @@ const Sidebar = () => {
           } border-0 border-black bg-white bg-opacity-50`,
           !isCollapsed &&
             `${
-              isMobile ? "w-[5.3rem]" : "w-[17rem]"
+              isMobile ? ( isRotated? "w-[13rem]" : "w-[5.3rem] mr-1") : "w-[17rem]"
             } border-2 border-r-0 bg-opacity-100`
         )}
         onMouseEnter={() => setClose(false)}
@@ -108,13 +116,13 @@ const Sidebar = () => {
             پنل کاربری
           </p>
         </div>
-        <ul className="sidebar__list">
+        <ul className="sidebar__list" style={{display: isRotated ? "grid" : "", gridTemplateColumns: isRotated ? "60px 60px 60px" : ""}}>
           {sidebarItems.map(({ name, href, icon: Icon }) => {
             return (
               <li
                 className={`sidebar__item ${
                   isMobile && isCollapsed ? "hidden" : ""
-                }`}
+                } ${isRotated ? "w-fit" : ""}`}
                 key={name}
               >
                 <Link
@@ -145,7 +153,7 @@ const Sidebar = () => {
               <li
                 className={`sidebar__item ${
                   isMobile && isCollapsed ? "hidden" : ""
-                }`}
+                } ${isRotated ? "w-fit" : ""}`}
                 key={name}
               >
                 <Link

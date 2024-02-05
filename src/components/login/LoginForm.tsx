@@ -27,21 +27,21 @@ import { fetchData } from "../fetchData";
 
 import "./button.css";
 
+import { apiPath } from "@/constants/index.constants";
+import showToast from "@/utils/showToast";
+import { CircularProgress } from "@mui/material";
 import axios from "axios";
 
 export default function LoginForm() {
-  const [studentNumberError, setStudentNumberError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
-  const [studentNumberErrorMessage, setStudentNumberErrorMessage] =
-    useState("");
-  const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
-  const [sdata, setSdata] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   // console.log("token in form", getCookie("token"));
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+    setIsLoading(true);
+    let message = null;
     const data = new FormData(event.currentTarget);
     const loginData = {
       id: data.get("studentNumber"),
@@ -53,8 +53,28 @@ export default function LoginForm() {
     // if (result === "Success") {
     //   router.push(`/Home`);
     // }
+    if (loginData.id == "") {
+      message = (
+        <p style={{ fontFamily: "Vazirmatn" }}>
+          لطفا شماره دانشجویی را وارد نمایید
+        </p>
+      );
+      showToast(message, "error", 3000);
+      setIsLoading(false);
+
+      return null;
+    }
+    if (loginData.password == "") {
+      message = (
+        <p style={{ fontFamily: "Vazirmatn" }}>لطفا رمزعبور را وارد نمایید</p>
+      );
+      showToast(message, "error", 3000);
+      setIsLoading(false);
+
+      return null;
+    }
     const res = await axios
-      .post("https://jubilant-disco-4jx77wj47jjfqrg6-8000.app.github.dev/login", loginData)
+      .post(`${apiPath}/login`, loginData)
       .then((res) => {
         if (res.status == 200) {
           Cookie.set("token", res.data["access token"], {
@@ -65,8 +85,17 @@ export default function LoginForm() {
         }
       })
       .catch((err) => {
-        console.log(err);
+        // console.log("err in login", err.response.data);
+        if (err.response.data.detail == "id or password is wrong.") {
+          message = (
+            <p style={{ fontFamily: "Vazirmatn" }}>
+              شماره دانشجویی یا رمزعبور نادرست است
+            </p>
+          );
+          showToast(message, "error", 3000);
+        }
       });
+    setIsLoading(false);
   };
 
   return (
@@ -119,15 +148,31 @@ export default function LoginForm() {
           sx: { fontFamily: "vazirmatn" },
         }}
       />
-      <FormControlLabel
+      {/* <FormControlLabel
         control={<Checkbox value="remember" color="primary" />}
         label={
           <Typography fontFamily="Vazirmatn">مرا به خاطر بسپار</Typography>
         }
         sx={{ marginLeft: 1, direction: "rtl" }}
-      />
+      /> */}
+      <Typography
+        sx={{
+          fontFamily: "Vazirmatn",
+          // textAlign: "center",
+          fontSize: "16px",
+          // fontWeight: "550",
+        }}
+      >
+        حساب کاربری ندارید؟ <Link href="/SignUp">ثبت نام کنید</Link>
+      </Typography>
       <button className="button-48">
-        <span>ورود</span>
+        {isLoading ? (
+          <div className="flex w-full items-center justify-center">
+            <CircularProgress />
+          </div>
+        ) : (
+          <span>ورود</span>
+        )}
       </button>
     </Box>
   );

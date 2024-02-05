@@ -36,7 +36,7 @@ export default function SuggestedCollegeChart() {
           {studentInfo &&
             studentInfo.terms?.map((chart, Idx) => {
               return (
-                <Grid key={Idx} xs={6} className="flex justify-center">
+                <Grid key={Idx} xs={8} className="flex justify-center">
                   <ChartTable
                     semester={chart.term_number}
                     courses={chart.courses}

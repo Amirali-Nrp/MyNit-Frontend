@@ -1,7 +1,6 @@
 "use client";
 
 // import { cookies } from "next/headers";
-import { apiPath } from "@/constants/index.constants";
 import axios from "axios";
 // import { getCookie } from "cookies-next";
 import Cookies from "js-cookie";
@@ -18,7 +17,7 @@ export default function useTest(
   return useQuery<Student>({
     queryKey: ["test", Cookies.get("token")],
     queryFn: async (): Promise<Student> => {
-      const res = await axios.get<Student>(`${apiPath}/units`, {
+      const res = await axios.get<Student>(`${process.env.NEXT_PUBLIC_API_URL}/units`, {
         headers: {
           // "Content-Type": "application/json",
           Authorization: `Bearer ${Cookies.get("token")}`,

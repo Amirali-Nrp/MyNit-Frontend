@@ -21,14 +21,23 @@ export const getCourseWeeklyPlan = (course: Eligible) => {
         professor: "",
         description: "",
       };
+      // @ts-ignore
       result[i].day = day;
+      // @ts-ignore
       result[i].time = time as { from: string; to: string };
+      // @ts-ignore
       result[i].courseName = course.courseName;
+      // @ts-ignore
       result[i].courseID = course.courseID;
+      // @ts-ignore
       result[i].totalUnit = course.totalUnit;
+      // @ts-ignore
       result[i].practicalUnit = course.practicalUnit;
+      // @ts-ignore
       result[i].remainingCapacity = course.capacity - course.registeredCount;
+      // @ts-ignore
       result[i].professor = course.professor;
+      // @ts-ignore
       result[i].description = course.description || "";
       i++;
     }

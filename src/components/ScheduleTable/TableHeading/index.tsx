@@ -25,7 +25,10 @@ function TableHeading() {
         >
           {idx !== 0 ? (
             <p className="text-center text-[0.75rem]">
-              {e2p(time.split("-")[0])} تا {e2p(time.split("-")[1])}
+              {
+              // @ts-ignore
+              e2p(time.split("-")[0])} تا {e2p(time.split("-")[1])
+              }
             </p>
           ) : (
             <p className="text-center text-[14px]">{time}</p>

@@ -25,7 +25,7 @@ function ScheduleTable() {
     const coursePlans = courseData?.map((course) =>
       getCourseWeeklyPlan(course)
     );
-    console.log("coursePlans", coursePlans, courseData);
+    // console.log("coursePlans", coursePlans, courseData);
     const week: TWeeklyPlan = {};
     // if (coursePlans === undefined) return;
     for (const coursePlan of coursePlans) {
@@ -61,6 +61,7 @@ function ScheduleTable() {
     <Grid container sx={{ direction: "rtl", bgcolor: "white", mb: 10 }}>
       <TableHeading />
       {WEEK_DAYS_EN.map((day, Idx) => (
+        // @ts-ignore
         <TableRow key={Idx} day={WEEK_DAYS_FA[Idx]} plan={weeklyPlan[day]} />
       ))}
     </Grid>

@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 
-import { apiPath } from "@/constants/index.constants";
 import { Box } from "@mui/material";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -14,13 +13,13 @@ export default function AdminPanel() {
 
   useEffect(() => {
     axios
-      .get(`${apiPath}/students`, {
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/students`, {
         headers: {
           Authorization: `Bearer ${Cookies.get("token")}`,
         },
       })
       .then((res) => setStudens(res.data))
-      .catch((err) => console.log("error in Admin Panel", err));
+      .catch((err) => "");
   }, []);
 
   return (

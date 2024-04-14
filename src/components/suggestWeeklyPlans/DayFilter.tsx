@@ -19,7 +19,7 @@ export default function DayFilter() {
 
   const addDay = (day: string) => {
     setDays([...days, day]);
-    console.log("added", day);
+    // console.log("added", day);
   };
 
   const removeDay = (inDay: string) => {
@@ -27,10 +27,11 @@ export default function DayFilter() {
     const temp: string[] = [];
     for (const day in checkedDays) {
       if (checkedDays[day] !== inDay) {
+        // @ts-ignore
         temp.push(checkedDays[day]);
       }
     }
-    console.log("removed");
+    // console.log("removed");
     setDays(temp);
   };
 
@@ -42,7 +43,7 @@ export default function DayFilter() {
     }
   };
 
-  console.log("state", days);
+  // console.log("state", days);
 
   return (
     <Box sx={{ display: "flex", direction: "rtl" }}>

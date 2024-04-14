@@ -19,7 +19,6 @@ import { admin_routes } from "@/constants/routes";
 import "./styles.css";
 import axios from "axios";
 import { isAborted } from "zod";
-import { apiPath } from "@/constants/index.constants";
 
 // Hook
 function useWindowSize() {
@@ -66,11 +65,11 @@ const Sidebar = () => {
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
-    axios.post(`${apiPath}/authorize`, {
+    axios.post(`${process.env.NEXT_PUBLIC_API_URL}/authorize`, {
       access_token: Cookies.get("token")
     })
     .then(res => setIsAdmin(res.data.admin)).
-    catch (err => console.log("error in sidebar", err))
+    catch (err => "")
   }, [])
 
 

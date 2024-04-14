@@ -109,7 +109,7 @@ const UserInfo = (props: any) => {
   const router = useRouter();
 
   const handleLogOut = async () => {
-    console.log("log out");
+    // console.log("log out");
     const res = await logOut();
     if (res) {
       router.push("/Login");

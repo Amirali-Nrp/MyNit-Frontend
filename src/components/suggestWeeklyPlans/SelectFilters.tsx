@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { apiPath } from "@/constants/index.constants";
 import {
   useCourseFilterStorage,
   useStudentStorage,
@@ -28,7 +27,7 @@ export default function SelectFilters() {
     setIsLoading(true);
     let message;
     if (filteredCourses.length === 0) {
-      console.log("no courses");
+      // console.log("no courses");
       message = <p style={{ fontFamily: "Vazirmatn" }}>درسی انتخاب نشده است</p>;
       showToast(message, "error", 3000);
       setIsLoading(false);
@@ -42,7 +41,7 @@ export default function SelectFilters() {
     }
 
     if (totalSelectedUnits < 12) {
-      console.log("less than 12 units");
+      // console.log("less than 12 units");
       message = (
         <p style={{ fontFamily: "Vazirmatn" }}>
           !کمتر از ۱۲ واحد انتخاب کرده اید
@@ -58,7 +57,7 @@ export default function SelectFilters() {
     // });
     axios
       .put(
-        `${apiPath}/units`,
+        `${process.env.NEXT_PUBLIC_API_URL}/units`,
         {
           courses: [...filteredCourses],
         },
@@ -76,7 +75,7 @@ export default function SelectFilters() {
           showToast(message, "error", 3000);
         }
         setPlans(response.data);
-        console.log("incoming plans", response.data);
+        // console.log("incoming plans", response.data);
         setIsLoading(false);
       });
   };

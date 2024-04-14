@@ -17,7 +17,6 @@ import Cookie from "js-cookie";
 
 import "@/components/login/button.css";
 
-import { apiPath } from "@/constants/index.constants";
 import showToast from "@/utils/showToast";
 
 export default function SignupForm() {
@@ -34,7 +33,7 @@ export default function SignupForm() {
       name: data.get("name"),
       password: data.get("password"),
     };
-    console.log("signupData", signupData);
+    // console.log("signupData", signupData);
     if (signupData.id == "") {
       message = (
         <p style={{ fontFamily: "Vazirmatn" }}>
@@ -65,7 +64,7 @@ export default function SignupForm() {
       return null;
     }
     const res = await axios
-      .post(`${apiPath}/signup`, signupData)
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/signup`, signupData)
       .then((res) => {
         if (res.status == 200) {
           Cookie.set("token", res.data["access token"], {
@@ -76,7 +75,7 @@ export default function SignupForm() {
         }
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         message = <p style={{ fontFamily: "Vazirmatn" }}>خطایی رخ داد</p>;
         showToast(message, "error", 3000);
       });

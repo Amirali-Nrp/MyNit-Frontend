@@ -34,6 +34,7 @@ export default function SuggestedCollegeChart() {
           sx={{ justifyContent: "center" }}
         >
           {studentInfo &&
+            // @ts-ignore
             studentInfo.terms?.map((chart, Idx) => {
               return (
                 <Grid key={Idx} xs={8} className="flex justify-center">

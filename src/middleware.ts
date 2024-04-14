@@ -2,7 +2,6 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-import { apiPath } from "./constants/index.constants";
 import { authed_routes } from "./constants/routes";
 
 export async function middleware(request: NextRequest) {
@@ -22,7 +21,7 @@ export async function middleware(request: NextRequest) {
     }
 
     try {
-      const resposne = await fetch(`${apiPath}/authorize`, {
+      const resposne = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/authorize`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +37,7 @@ export async function middleware(request: NextRequest) {
       }
       return NextResponse.redirect(new URL("/Home", request.url));
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
 
     return NextResponse.rewrite(new URL("/", request.url));
@@ -52,7 +51,7 @@ export async function middleware(request: NextRequest) {
     }
 
     try {
-      const resposne = await fetch(`${apiPath}/authorize`, {
+      const resposne = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/authorize`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -63,7 +62,7 @@ export async function middleware(request: NextRequest) {
       });
 
       const result = await resposne.json();
-      console.log("res", result);
+      // console.log("res", result);
       if (result.detail === "unauthorized") {
         return NextResponse.rewrite(new URL("/", request.url));
       }
@@ -71,7 +70,7 @@ export async function middleware(request: NextRequest) {
         new URL(request.nextUrl.pathname, request.url)
       );
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
 
     return NextResponse.rewrite(new URL("/", request.url));

@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 
-import { apiPath } from "@/constants/index.constants";
 import showToast from "@/utils/showToast";
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
@@ -27,7 +26,7 @@ const AddCourses = () => {
     }
     await axios
       .put(
-        `${apiPath}/units/upload`,
+        `${process.env.NEXT_PUBLIC_API_URL}/units/upload`,
         {
           raw_html: tbody.replace(/"/g, '\\"'),
         },

@@ -2,7 +2,6 @@
 import { get } from "http";
 import { cookies } from "next/headers";
 
-import { apiPath } from "@/constants/index.constants";
 import axios from "axios";
 // import { getCookie, setCookie } from "cookies-next";
 import NextAuth from "next-auth";
@@ -34,10 +33,10 @@ export const {
           return null;
         }
 
-        console.log("credentials", parsedCredentials.data);
+        // console.log("credentials", parsedCredentials.data);
 
         const response = await axios.post(
-          `${apiPath}/login`,
+          `${process.env.NEXT_PUBLIC_API_URL}/login`,
           {
             id: parsedCredentials.data.studentId,
             password: parsedCredentials.data.password,
@@ -56,13 +55,13 @@ export const {
           //   response.data["access token"]
           // );
           const token = response.data["access token"];
-          console.log("token from api", token);
+          // console.log("token from api", token);
           cookies().set("token", token, {
             expires: 1,
             secure: true,
           });
           // setCookie("token", token);
-          console.log("token in auth", cookies().get("token")?.value);
+          // console.log("token in auth", cookies().get("token")?.value);
           // return {};
         } else {
           // console.log("error", response.status, response.data);
@@ -90,6 +89,7 @@ export const {
     }),
   ],
   callbacks: {
+    // @ts-ignore
     jwt({ token, user }) {
       if (user) {
         return {

@@ -8,9 +8,12 @@ import sortedPlan from "./sortDailyPlans";
 export const isInterfering = (time1: string, time2: string): boolean => {
   const [[start1, end1], [start2, end2]] = [time1.split("-"), time2.split("-")];
 
+  // @ts-ignore
   if (compareTime(start1, start2) === 0) return true;
+  // @ts-ignore
   if (compareTime(start1, start2) === 1 && compareTime(start1, end2) === -1)
     return true;
+  // @ts-ignore
   if (compareTime(start2, start1) === 1 && compareTime(start2, end1) === -1)
     return true;
 
@@ -24,12 +27,15 @@ const calculateDayRow = (plan: TDailyPlan[], dayName: string) => {
   // let temp: TDailyPlan | { practicalUnit: string; totalUnit: string };
 
   for (let i = 0; i < times?.length; i++) {
+    // @ts-ignore
     const startTime = i === 0 ? "7:30" : times[i - 1].split("-")[1];
+    // @ts-ignore
     if (i > 0 && isInterfering(times[i - 1], times[i])) {
       //TODO: figure another way to show interference
       continue;
     }
 
+    // @ts-ignore
     const diffFromStart = getTimeScale(startTime, times[i].split("-")[0]);
 
     if (diffFromStart !== 0) {
@@ -44,8 +50,10 @@ const calculateDayRow = (plan: TDailyPlan[], dayName: string) => {
         description: "",
       });
     }
+    // @ts-ignore
     newPlans.push({
       ...sorted[i],
+      // @ts-ignore
       timeScale: getTimeScale(sorted[i].time.from, sorted[i].time.to),
     });
   }

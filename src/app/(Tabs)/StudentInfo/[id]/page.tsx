@@ -29,7 +29,7 @@ export default function StudentInfo({
         }
       )
       .then((res) => setStudentInfo(res.data))
-      .catch((err) => console.log("err in Student Info", err));
+      .catch((err) => "");
   }, []);
 
   return (

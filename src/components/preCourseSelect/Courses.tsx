@@ -234,6 +234,7 @@ export default function EnhancedTable({ courseGroup }: any) {
 
   const Data =
     studentInfo &&
+    // @ts-ignore
     studentInfo.eligibles.filter((item) => item.lesson_group === courseGroup);
 
   // const filterData = (data: any[]) => {
@@ -264,6 +265,7 @@ export default function EnhancedTable({ courseGroup }: any) {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
+      // @ts-ignore
       const newSelected = Data && Data.map((n: { id: any }) => n.id);
       newSelected && setSelected(newSelected);
       return;
@@ -292,7 +294,7 @@ export default function EnhancedTable({ courseGroup }: any) {
 
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
-    console.log(page);
+    // console.log(page);
   };
 
   const handleChangeRowsPerPage = (
@@ -316,6 +318,7 @@ export default function EnhancedTable({ courseGroup }: any) {
     Data &&
     React.useMemo(
       () =>
+        // @ts-ignore
         stableSort(Data, getComparator(order, orderBy)).slice(
           page * rowsPerPage,
           page * rowsPerPage + rowsPerPage

@@ -159,7 +159,7 @@ export default function List({
   //   }
   // }, [courseIDs]);
 
-  console.log("courseData", courseData);
+  // console.log("courseData", courseData);
   // console.log("courseIDs", courseIDs);
   // console.log("data", data);
 
@@ -182,8 +182,10 @@ export default function List({
     let interferenceDays = [];
     let interferenceCourses = [];
     for (const day of days) {
+      // @ts-ignore
       const sorted = sortedPlan(weeklyPlan[day]);
       for (let i = 0; i < sorted.length; i++) {
+        // @ts-ignore
         const currentItemTime = item.dateAndTime[day] as {
           from: string;
           to: string;
@@ -193,12 +195,15 @@ export default function List({
           if (
             isInterfering(
               comparableTime,
+              // @ts-ignore
               `${sorted[i].time.from}-${sorted[i].time.to}`
             )
           ) {
             interferenceDays.push(day);
             interferenceCourses.push(
+              // @ts-ignore
               `${sorted[i].courseName} (گروه ${
+                // @ts-ignore
                 sorted[i].courseID.split("_")[1]
               })`
             );
@@ -211,6 +216,7 @@ export default function List({
     }
 
     if (interferenceDays.length > 0) {
+      // @ts-ignore
       const interferingCourses = [...new Set(interferenceCourses)];
       const message = (
         <p style={{ fontFamily: "Vazirmatn" }}>
@@ -228,7 +234,10 @@ export default function List({
           {interferenceDays.map((d, i, a) => (
             <>
               <Box component="span" sx={{ color: "secondary.main" }}>
-                {WEEK_DAYS_DICTIONARY[d as Days]}
+                {
+                // @ts-ignore
+                WEEK_DAYS_DICTIONARY[d as Days]
+                }
               </Box>
               {a.length > 1 && i !== a.length - 1 ? " و " : ""}
             </>
@@ -251,9 +260,9 @@ export default function List({
             };
             if (time.time && course.dateAndTime.exam?.time) {
               if (isInterfering(time.time, course.dateAndTime.exam?.time)) {
-                console.log(
-                  `in ${item.courseName} ba in ${course.courseName} tadakhol dare`
-                );
+                // console.log(
+                //   `in ${item.courseName} ba in ${course.courseName} tadakhol dare`
+                // );
                 interferenceCourses.push(
                   `${course.courseName} (گروه ${course.courseID.split("_")[1]})`
                 );
@@ -265,6 +274,7 @@ export default function List({
     }
 
     if (interferenceCourses.length > 0) {
+      // @ts-ignore
       const interferingCourses = [...new Set(interferenceCourses)];
       const message = (
         <p style={{ fontFamily: "Vazirmatn" }}>

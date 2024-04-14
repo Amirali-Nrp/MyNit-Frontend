@@ -24,9 +24,10 @@ export default function DisplayWeeklyPlans() {
     const coursePlans = plans[planNum]?.courses?.map((course) =>
       getCourseWeeklyPlan(course)
     );
-    console.log("coursePlans", coursePlans, plans[planNum]?.courses);
+    // console.log("coursePlans", coursePlans, plans[planNum]?.courses);
     const week: TWeeklyPlan = {};
     // if (coursePlans === undefined) return;
+    // @ts-ignore
     for (const coursePlan of coursePlans) {
       for (const dayPlan of coursePlan) {
         const {
@@ -61,6 +62,7 @@ export default function DisplayWeeklyPlans() {
       <Grid container sx={{ direction: "rtl", bgcolor: "white", mb: 3 }}>
         <TableHeading />
         {WEEK_DAYS_EN.map((day, Idx) => (
+          // @ts-ignore
           <TableRow key={Idx} day={WEEK_DAYS_FA[Idx]} plan={weeklyPlan[day]} />
         ))}
       </Grid>

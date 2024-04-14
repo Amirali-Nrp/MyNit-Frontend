@@ -4,32 +4,16 @@ import * as React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { useStudentStorage } from "@/storage/storage";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Checkbox from "@mui/material/Checkbox";
-import Container from "@mui/material/Container";
-import CssBaseline from "@mui/material/CssBaseline";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 // import { setCookie } from "cookies-next";
 import Cookie from "js-cookie";
 
-import { login } from "@/lib/actions/login.action";
-
-import { fetchData } from "../fetchData";
-
 import "./button.css";
 
-import { apiPath } from "@/constants/index.constants";
 import showToast from "@/utils/showToast";
-import { CircularProgress } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 import axios from "axios";
 
 export default function LoginForm() {
@@ -47,7 +31,7 @@ export default function LoginForm() {
       id: data.get("studentNumber"),
       password: data.get("password"),
     };
-    console.log("loginData", loginData);
+    // console.log("loginData", loginData);
     // const result = await login(loginData);
     // console.log("result", result);
     // if (result === "Success") {
@@ -74,7 +58,7 @@ export default function LoginForm() {
       return null;
     }
     const res = await axios
-      .post(`${apiPath}/login`, loginData)
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/login`, loginData)
       .then((res) => {
         if (res.status == 200) {
           Cookie.set("token", res.data["access token"], {

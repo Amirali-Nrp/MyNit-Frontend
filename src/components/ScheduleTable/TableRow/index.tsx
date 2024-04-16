@@ -99,7 +99,10 @@ export default function TableRow({
                   fontFamily="Vazirmatn"
                   mx={1}
                 >
-                  {`${e2p(courseName)} (گروه ${e2p(courseID.split("_")[1])})`}
+                  {
+                    // @ts-ignore
+                    `${e2p(courseName)} (گروه ${e2p(courseID.split("_")[1])})`
+                  }
                 </Typography>
                 <Typography
                   component="p"

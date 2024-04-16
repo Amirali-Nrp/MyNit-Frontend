@@ -110,10 +110,12 @@ const UserInfo = (props: any) => {
 
   const handleLogOut = async () => {
     // console.log("log out");
-    const res = await logOut();
-    if (res) {
-      router.push("/Login");
-    }
+    // const res = await logOut();
+    // if (res) {
+    //   router.push("/Login");
+    // }
+    router.push("/Login");
+
     setTimeout(() => {
       setStudentId(null);
       setCourseData([]);

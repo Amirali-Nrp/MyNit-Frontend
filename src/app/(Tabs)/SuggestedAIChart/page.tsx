@@ -4,7 +4,7 @@ import useGetChart from "@/core/api/use-getchart";
 import useTest from "@/core/api/use-test";
 import { useStudentStorage } from "@/storage/storage";
 import { Typography } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid";
 
 import ChartTable from "@/components/chartTable/ChartTable";
 
@@ -24,19 +24,18 @@ export default function SuggestedAIChart() {
         <p>loading</p>
       ) : (
         <div
-          className="my-24 w-4/5 items-center rounded-xl border-2 border-[#002] bg-white p-20 px-48"
+          className="m-24 w-full items-center rounded-xl border-2 border-[#002] bg-white py-16"
           style={{ direction: "rtl" }}
         >
           <Grid
             container
-            spacing={5}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-            sx={{ justifyContent: "center" }}
+            spacing={{ xs: 2, md: 3 }}
+            columns={{ xs: 1, lg: 2, xl: 3 }}
           >
             {studentInfo &&
               studentInfo.remaining_terms.map((chart, Idx) => {
                 return (
-                  <Grid key={Idx} xs={8} className="flex justify-center">
+                  <Grid key={Idx} item xs={1} className="flex justify-center">
                     <ChartTable
                       semester={chart.term_number}
                       courses={chart.courses}

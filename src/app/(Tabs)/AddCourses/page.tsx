@@ -19,7 +19,8 @@ const AddCourses = () => {
       message = (
         <p style={{ fontFamily: "Vazirmatn" }}>لطفا اطلاعات خود را وارد کنید</p>
       );
-      showToast(message, "error", 3000);
+      showToast(message, "error", 1000);
+      setTimeout
       setIsLoading(false);
 
       return null;
@@ -36,6 +37,12 @@ const AddCourses = () => {
           },
         }
       )
+      .then((res) => {
+        if (res.status == 200) {
+          showToast("عملیات موفق", "success", 3000);
+          location.reload();
+        }
+      })
       .catch((err) => {
         message = <p style={{ fontFamily: "Vazirmatn" }}>خطایی رخ داد</p>;
         showToast(message, "error", 3000);
@@ -60,7 +67,7 @@ const AddCourses = () => {
         onChange={(e) => settbody(e.target.value)}
       />
       <button
-        className="h-8 rounded-full bg-sky-500"
+        className="h-16 rounded-full bg-sky-500"
         data-testid="submit-button"
         onClick={handleClick}
       >
@@ -69,7 +76,7 @@ const AddCourses = () => {
             <CircularProgress />
           </div>
         ) : (
-          <span>ورود</span>
+          <span>ثبت</span>
         )}
       </button>
     </div>

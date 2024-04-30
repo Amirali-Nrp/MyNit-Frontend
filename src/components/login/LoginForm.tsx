@@ -63,7 +63,6 @@ export default function LoginForm() {
         if (res.status == 200) {
           Cookie.set("token", res.data["access token"], {
             expires: 1,
-            secure: true,
           });
           router.push(`/Home`);
         }
@@ -108,13 +107,29 @@ export default function LoginForm() {
         name="studentNumber"
         // autoComplete=""
         autoFocus
+        sx={{
+          "& label.Mui-focused": {
+            color: "white",
+          },
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "white",
+            },
+            "&:hover fieldset": {
+              borderColor: "white",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "white",
+            },
+          },
+        }}
         InputProps={{
-          sx: { borderRadius: 50 },
+          sx: { borderRadius: 50, color: "white" },
           inputMode: "numeric",
           // pattern: "[0-9]*",
         }}
         InputLabelProps={{
-          sx: { fontFamily: "vazirmatn" },
+          sx: { fontFamily: "vazirmatn", color: "white" },
         }}
         // helperText={}
       />
@@ -127,9 +142,25 @@ export default function LoginForm() {
         type="password"
         id="password"
         autoComplete="current-password"
-        InputProps={{ sx: { borderRadius: 50 } }}
+        sx={{
+          "& label.Mui-focused": {
+            color: "white",
+          },
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "white",
+            },
+            "&:hover fieldset": {
+              borderColor: "white",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "white",
+            },
+          },
+        }}
+        InputProps={{ sx: { borderRadius: 50, color: "white" } }}
         InputLabelProps={{
-          sx: { fontFamily: "vazirmatn" },
+          sx: { fontFamily: "vazirmatn", color: "white" },
         }}
       />
       {/* <FormControlLabel
@@ -147,7 +178,10 @@ export default function LoginForm() {
           // fontWeight: "550",
         }}
       >
-        حساب کاربری ندارید؟ <Link href="/SignUp">ثبت نام کنید</Link>
+        حساب کاربری ندارید؟{" "}
+        <Link href="/SignUp" color="#00e5ff">
+          ثبت نام کنید
+        </Link>
       </Typography>
       <button className="button-48">
         {isLoading ? (

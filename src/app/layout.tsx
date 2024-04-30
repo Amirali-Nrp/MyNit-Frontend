@@ -20,9 +20,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        className={"min-h-screen bg-[url('/assets/background.svg')] bg-fixed"}
-      >
+      <body className={"min-h-screen bg-[#BDCDD9]"}>
         <ReactQueryProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <ToasterContainer />

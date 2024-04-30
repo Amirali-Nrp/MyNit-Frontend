@@ -61,7 +61,7 @@ const Sidebar = () => {
     useContext(SidebarContext);
 
   const [isMobile, setIsMobile] = useState(false);
-  const [isRotated, setIsRotated] = useState(false);
+  // const [isRotated, setIsRotated] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
@@ -81,10 +81,7 @@ const Sidebar = () => {
     }
     if (size.height < 800) {
       setIsMobile(true);
-      setIsRotated(true)
-    } else {
-      setIsRotated(false);
-    }
+    } 
   }, [size]);
 
   return (
@@ -103,7 +100,7 @@ const Sidebar = () => {
           } border-0 border-black bg-white bg-opacity-50`,
           !isCollapsed &&
             `${
-              isMobile ? ( isRotated? "w-[13rem]" : "w-[5.3rem] mr-1") : "w-[17rem]"
+              isMobile ?  "w-[5.3rem] mr-1" : "w-[17rem]"
             } border-2 border-r-0 bg-opacity-100`
         )}
         onMouseEnter={() => setClose(false)}
@@ -115,13 +112,13 @@ const Sidebar = () => {
             پنل کاربری
           </p>
         </div>
-        <ul className="sidebar__list" style={{display: isRotated ? "grid" : "", gridTemplateColumns: isRotated ? "60px 60px 60px" : ""}}>
+        <ul className="sidebar__list" >
           {sidebarItems.map(({ name, href, icon: Icon }) => {
             return (
               <li
                 className={`sidebar__item ${
                   isMobile && isCollapsed ? "hidden" : ""
-                } ${isRotated ? "w-fit" : ""}`}
+                }`}
                 key={name}
               >
                 <Link
@@ -152,7 +149,7 @@ const Sidebar = () => {
               <li
                 className={`sidebar__item ${
                   isMobile && isCollapsed ? "hidden" : ""
-                } ${isRotated ? "w-fit" : ""}`}
+                }`}
                 key={name}
               >
                 <Link

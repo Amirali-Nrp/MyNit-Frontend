@@ -10,9 +10,13 @@ const defaultTheme = createTheme();
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="absolute h-full w-full">
+    <div className="absolute flex h-full w-full items-center justify-center bg-[url('/assets/nit-map.png')] bg-cover text-white">
       <ThemeProvider theme={defaultTheme}>
-        <Container component="main" maxWidth="xs" sx={{ mt: 10 }}>
+        <Container
+          component="main"
+          maxWidth="sm"
+          className="mx-12 rounded-xl bg-white bg-opacity-40 p-12 backdrop-blur-sm"
+        >
           <CssBaseline />
           <Box
             sx={{

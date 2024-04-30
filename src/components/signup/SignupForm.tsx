@@ -108,13 +108,29 @@ export default function SignupForm() {
         name="studentNumber"
         // autoComplete=""
         autoFocus
+        sx={{
+          "& label.Mui-focused": {
+            color: "white",
+          },
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "white",
+            },
+            "&:hover fieldset": {
+              borderColor: "white",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "white",
+            },
+          },
+        }}
         InputProps={{
-          sx: { borderRadius: 50 },
+          sx: { borderRadius: 50, color: "white" },
           inputMode: "numeric",
           // pattern: "[0-9]*",
         }}
         InputLabelProps={{
-          sx: { fontFamily: "vazirmatn" },
+          sx: { fontFamily: "vazirmatn", color: "white" },
         }}
         // helperText={}
       />
@@ -127,9 +143,25 @@ export default function SignupForm() {
         type="text"
         id="name"
         autoComplete="current-password"
-        InputProps={{ sx: { borderRadius: 50 } }}
+        sx={{
+          "& label.Mui-focused": {
+            color: "white",
+          },
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "white",
+            },
+            "&:hover fieldset": {
+              borderColor: "white",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "white",
+            },
+          },
+        }}
+        InputProps={{ sx: { borderRadius: 50, color: "white" } }}
         InputLabelProps={{
-          sx: { fontFamily: "vazirmatn" },
+          sx: { fontFamily: "vazirmatn", color: "white" },
         }}
       />
       <TextField
@@ -141,9 +173,25 @@ export default function SignupForm() {
         type="password"
         id="password"
         autoComplete="current-password"
-        InputProps={{ sx: { borderRadius: 50 } }}
+        sx={{
+          "& label.Mui-focused": {
+            color: "white",
+          },
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "white",
+            },
+            "&:hover fieldset": {
+              borderColor: "white",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "white",
+            },
+          },
+        }}
+        InputProps={{ sx: { borderRadius: 50, color: "white" } }}
         InputLabelProps={{
-          sx: { fontFamily: "vazirmatn" },
+          sx: { fontFamily: "vazirmatn", color: "white" },
         }}
       />
       {/* <FormControlLabel
@@ -159,9 +207,12 @@ export default function SignupForm() {
           // textAlign: "center",
           fontSize: "16px",
           // fontWeight: "550",
-        }}  
+        }}
       >
-        حساب کاربری دارید؟ <Link href="/Login">وارد شوید</Link>
+        حساب کاربری دارید؟{" "}
+        <Link href="/Login" color="#00e5ff">
+          وارد شوید
+        </Link>
       </Typography>
       <button className="button-48">
         {isLoading ? (

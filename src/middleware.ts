@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 import { authed_routes } from "./constants/routes";
+import axios from "axios";
 
 export async function middleware(request: NextRequest) {
   const cookieStore = cookies();
@@ -48,13 +49,13 @@ export async function middleware(request: NextRequest) {
     };
 
     if (tokens.access_token === undefined) {
-      console.log("token undifined");
+      // console.log("token undifined");
       return NextResponse.redirect(new URL("/", request.url));
     }
 
     try {
-      const resposne = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/authorize`,
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_LOCAL_API_URL}/authorize`,
         {
           method: "POST",
           headers: {
@@ -65,21 +66,23 @@ export async function middleware(request: NextRequest) {
           }),
         }
       );
-
-      const result = await resposne.json();
+      const result = await response.json();
+      // console.log(tokens.access_token.value, result)
       // console.log("res", result);
       if (result.detail === "unauthorized") {
-        console.log("unauthorized");
+        // console.log("unauthorized");
         return NextResponse.redirect(new URL("/", request.url));
       }
-      return NextResponse.redirect(
+      else if (result.detail === "authorized") {
+        return NextResponse.rewrite(
         new URL(request.nextUrl.pathname, request.url)
       );
+    }
     } catch (e) {
-      // console.log(e);
+      // console.log("middleware error",e);
     }
 
-    console.log("default");
+    // console.log("default");
     return NextResponse.redirect(new URL("/", request.url));
   }
 }

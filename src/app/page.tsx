@@ -18,7 +18,7 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <div className="absolute h-full w-full">
+    <div className="absolute h-full w-full bg-[url('/assets/nit-map.png')] bg-cover">
       <ThemeProvider theme={defaultTheme}>
         <Container component="main" maxWidth="xs" sx={{ mt: 10 }}>
           <CssBaseline />
@@ -38,6 +38,7 @@ export default function Home() {
                 fontFamily: "Vazirmatn",
                 fontSize: "21px",
                 fontWeight: "550",
+                color: "white",
               }}
             >
               سامانه دانشجویی دانشگاه نوشیروانی بابل

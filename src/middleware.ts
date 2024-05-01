@@ -48,6 +48,7 @@ export async function middleware(request: NextRequest) {
     };
 
     if (tokens.access_token === undefined) {
+      console.log("token undifined");
       return NextResponse.redirect(new URL("/", request.url));
     }
 
@@ -68,15 +69,17 @@ export async function middleware(request: NextRequest) {
       const result = await resposne.json();
       // console.log("res", result);
       if (result.detail === "unauthorized") {
-        return NextResponse.rewrite(new URL("/", request.url));
+        console.log("unauthorized");
+        return NextResponse.redirect(new URL("/", request.url));
       }
-      return NextResponse.rewrite(
+      return NextResponse.redirect(
         new URL(request.nextUrl.pathname, request.url)
       );
     } catch (e) {
       // console.log(e);
     }
 
-    return NextResponse.rewrite(new URL("/", request.url));
+    console.log("default");
+    return NextResponse.redirect(new URL("/", request.url));
   }
 }

@@ -12,14 +12,14 @@ const BaseLayout = async ({ children }: any) => {
   return (
     <>
       {/* <SessionProvider userId={session?.user.id}> */}
-        <HeaderCard />
-        <SidebarProvider>
-          <Sidebar />
-          <main className="layout__main-content flex justify-center">
-            {children}
-          </main>
-        </SidebarProvider>
-        {/* <Footer /> */}
+      <HeaderCard />
+      <SidebarProvider>
+        <Sidebar />
+        <main className="layout__main-content flex justify-center text-black">
+          {children}
+        </main>
+      </SidebarProvider>
+      {/* <Footer /> */}
       {/* </SessionProvider> */}
     </>
   );

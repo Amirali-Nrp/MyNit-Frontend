@@ -3,7 +3,8 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 import { authed_routes } from "./constants/routes";
-import axios from "axios";
+
+// import axios from "axios";
 
 export async function middleware(request: NextRequest) {
   const cookieStore = cookies();
@@ -72,12 +73,11 @@ export async function middleware(request: NextRequest) {
       if (result.detail === "unauthorized") {
         // console.log("unauthorized");
         return NextResponse.redirect(new URL("/", request.url));
-      }
-      else if (result.detail === "authorized") {
+      } else if (result.detail === "authorized") {
         return NextResponse.rewrite(
-        new URL(request.nextUrl.pathname, request.url)
-      );
-    }
+          new URL(request.nextUrl.pathname, request.url)
+        );
+      }
     } catch (e) {
       // console.log("middleware error",e);
     }

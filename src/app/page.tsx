@@ -41,7 +41,7 @@ export default function Home() {
                 color: "white",
               }}
             >
-              سامانه دانشجویی دانشگاه نوشیروانی بابل
+              سامانه هوشمند انتخاب واحد
             </Typography>
             <Box
               sx={{

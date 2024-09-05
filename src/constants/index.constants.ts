@@ -103,6 +103,3 @@ export const DAY_FILTERS = [
 ];
 
 export const VERSION_NUMBER = "v1.0.0";
-
-// export const apiPath = "217.219.165.19:8080";
-// export const apiPath = "http://0.0.0.0:8080";

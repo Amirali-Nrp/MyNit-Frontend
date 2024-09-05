@@ -58,7 +58,7 @@ function ScheduleTable() {
   }, [courseData]);
 
   return (
-    <Grid container sx={{ direction: "rtl", bgcolor: "white", mb: 10 }}>
+    <Grid container sx={{ direction: "rtl", bgcolor: "white" }}>
       <TableHeading />
       {WEEK_DAYS_EN.map((day, Idx) => (
         // @ts-ignore

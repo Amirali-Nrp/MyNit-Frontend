@@ -36,7 +36,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
                 fontWeight: "550",
               }}
             >
-              سامانه دانشجویی دانشگاه نوشیروانی بابل
+              سامانه هوشمند انتخاب واحد
             </Typography>
             {children}
           </Box>

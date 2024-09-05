@@ -79,10 +79,10 @@ export async function middleware(request: NextRequest) {
         );
       }
     } catch (e) {
-      // console.log("middleware error",e);
+      console.log("middleware error", e);
     }
 
-    // console.log("default");
+    console.log("default");
     return NextResponse.redirect(new URL("/", request.url));
   }
 }

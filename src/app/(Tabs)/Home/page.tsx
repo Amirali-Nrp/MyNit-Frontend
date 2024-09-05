@@ -7,11 +7,11 @@ import {useRouter} from "next/navigation"
 
 const Home = () => {
   const nav = useRouter();
-  return <Box className="w-1/2 m-24 p-4 flex flex-row gap-4 items-center justify-center">
+  return <Box className="w-full md:w-1/2 m-24 md:p-4 flex flex-col md:flex-row gap-4 items-center justify-center">
     <Button
       onClick={() => {nav.replace("/PreCourseSelect")}}
       variant="contained"
-      className=" items-center rounded-xl border-2 border-[#002] bg-white flex flex-col gap-4 w-1/2 p-10 h-full"
+      className=" items-center rounded-xl border-2 border-[#002] bg-white flex flex-col gap-4 w-full md:w-1/2 p-10 h-full"
       sx={{direction: "rtl", "&:hover": {
         backgroundColor: '#eee',
       },
@@ -24,7 +24,7 @@ const Home = () => {
     <Button
       onClick={() => {nav.replace("/Chart")}}
       variant="contained"
-      className=" items-center rounded-xl border-2 border-[#002] bg-white flex flex-col gap-4 w-1/2 p-10  h-full"
+      className=" items-center rounded-xl border-2 border-[#002] bg-white flex flex-col gap-4 w-full md:w-1/2 p-10  h-full"
       sx={{direction: "rtl", "&:hover": {
         backgroundColor: '#eee',
       },

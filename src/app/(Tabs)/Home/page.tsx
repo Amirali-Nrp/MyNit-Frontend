@@ -15,7 +15,8 @@ const Home = () => {
       sx={{direction: "rtl", "&:hover": {
         backgroundColor: '#eee',
       },
-      border: "2px solid black"
+      border: "2px solid black",
+      backgroundColor: "#fff"
     }}
     >
       <GrPlan color="#000" size={50} />
@@ -28,8 +29,8 @@ const Home = () => {
       sx={{direction: "rtl", "&:hover": {
         backgroundColor: '#eee',
       },
-      border: "2px solid black"
-
+      border: "2px solid black",
+      backgroundColor: "#fff"
     }}
     >
       <RxCounterClockwiseClock color="#000" size={50}/>

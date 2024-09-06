@@ -141,6 +141,7 @@ export default function BasicTabs({
         <List
           data={oloompaye ?? []}
           courseData={store}
+          disableCheck={disableCheck}
           setCourseData={(data: Eligible[]) => setStore(data)}
         />
       </CustomTabPanel>

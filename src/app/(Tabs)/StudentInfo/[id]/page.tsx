@@ -20,7 +20,7 @@ export default function StudentInfo({
   useEffect(() => {
     axios
       .post(
-        "http://0.0.0.0:8080/students",
+        `${process.env.NEXT_PUBLIC_API_URL}/students`,
         { id: id },
         {
           headers: {
